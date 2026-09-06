@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Rechercher un ticket</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <div class="form-container">
+
+        <!-- LOGO -->
+
+        <img
+            src="{{ url_for('static', filename='yazaki.png') }}"
+            alt="Logo Yazaki"
+            class="logo-yazaki-small"
+        >
+
+
+        <h1>Rechercher un ticket</h1>
+
+
+        <form method="POST">
+
+            <label>ID du ticket</label>
+
+            <input
+                type="text"
+                name="id"
+                required
+            >
+
+
+            <button type="submit">
+                Rechercher
+            </button>
+
+        </form>
+
+
+        {% if message %}
+
+        <p class="message">
+            {{ message }}
+        </p>
+
+        {% endif %}
+
+
+        {% if ticket %}
+
+        <div class="result">
+
+            <h2>Résultat</h2>
+
+
+            <p>
+                <strong>ID :</strong>
+                {{ ticket["ID"] }}
+            </p>
+
+
+            <p>
+                <strong>Date :</strong>
+                {{ ticket["Date"] }}
+            </p>
+
+
+            <p>
+                <strong>Utilisateur :</strong>
+                {{ ticket["Utilisateur"] }}
+            </p>
+
+
+            <p>
+                <strong>Département :</strong>
+                {{ ticket["Département"] }}
+            </p>
+
+
+            <p>
+                <strong>Catégorie :</strong>
+                {{ ticket["Catégorie"] }}
+            </p>
+
+
+            <p>
+                <strong>Description :</strong>
+                {{ ticket["Description"] }}
+            </p>
+
+
+            <p>
+                <strong>Technicien IT :</strong>
+                {{ ticket["Technicien IT"] }}
+            </p>
+
+
+            <p>
+                <strong>Solution :</strong>
+                {{ ticket["Solution"] }}
+            </p>
+
+
+            <p>
+                <strong>Statut :</strong>
+                {{ ticket["Statut"] }}
+            </p>
+
+        </div>
+
+        {% endif %}
+
+
+        <a href="/">
+            <button>
+                Retour
+            </button>
+        </a>
+
+    </div>
+
+</body>
+
+</html>
