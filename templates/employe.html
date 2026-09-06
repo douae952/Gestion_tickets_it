@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Espace Employé - Gestion des Tickets IT</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <header>
+
+            <img
+                src="{{ url_for('static', filename='yazaki.png') }}"
+                alt="Logo Yazaki"
+                class="logo-yazaki"
+            >
+
+            <h1>Espace Employé</h1>
+
+            <p>Gestion des Tickets IT - Yazaki Kenitra</p>
+
+        </header>
+
+
+        <div class="cards">
+
+            <!-- Nouveau ticket -->
+
+            <a href="/ajouter" class="card">
+
+                <div class="icon">➕</div>
+
+                <h2>Nouveau ticket</h2>
+
+                <p>
+                    Signaler un problème informatique
+                </p>
+
+            </a>
+
+
+            <!-- Mes tickets -->
+
+            <a href="/mes-tickets" class="card">
+
+                <div class="icon">📋</div>
+
+                <h2>Mes tickets</h2>
+
+                <p>
+                    Consulter mes demandes IT
+                </p>
+
+            </a>
+
+
+            <!-- Rechercher -->
+
+            <a href="/rechercher" class="card">
+
+                <div class="icon">🔎</div>
+
+                <h2>Suivre un ticket</h2>
+
+                <p>
+                    Consulter l'état d'un ticket
+                </p>
+
+            </a>
+
+        </div>
+
+
+        <div style="text-align: center; margin-top: 30px;">
+
+            <a href="/logout">
+
+                <button>
+                    🚪 Déconnexion
+                </button>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

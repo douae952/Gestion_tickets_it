@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Ajouter un ticket</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <div class="form-container">
+
+        <!-- LOGO -->
+
+        <img
+            src="{{ url_for('static', filename='yazaki.png') }}"
+            alt="Logo Yazaki"
+            class="logo-yazaki-small"
+        >
+
+
+        <h1>Ajouter un ticket IT</h1>
+
+
+        <form method="POST">
+
+            <label>Utilisateur</label>
+
+            <input
+                type="text"
+                name="utilisateur"
+                required
+            >
+
+
+            <label>Département</label>
+
+            <input
+                type="text"
+                name="departement"
+                required
+            >
+
+
+            <form method="POST">
+
+    <label>Département</label>
+
+    <input type="text"
+           name="departement"
+           required>
+
+
+    <label>Catégorie</label>
+
+    <input type="text"
+           name="categorie"
+           required>
+
+
+    <label>Description</label>
+
+    <textarea
+        name="description"
+        required></textarea>
+
+
+    <label>Technicien IT</label>
+
+    <input type="text"
+           name="technicien">
+
+
+    <label>Solution</label>
+
+    <textarea
+        name="solution"></textarea>
+
+
+    <label>Statut</label>
+
+    <input type="text"
+           name="statut"
+           value="En attente">
+
+
+    <button type="submit">
+        Ajouter le ticket
+    </button>
+
+</form>
+
+
+            <label>Description</label>
+
+            <textarea
+                name="description"
+                required
+            ></textarea>
+
+
+            <label>Technicien IT</label>
+
+            <input
+                type="text"
+                name="technicien"
+            >
+
+
+            <label>Solution</label>
+
+            <textarea
+                name="solution"
+            ></textarea>
+
+
+            <label>Statut</label>
+
+            <input
+                type="text"
+                name="statut"
+            >
+
+
+            <button type="submit">
+                Ajouter le ticket
+            </button>
+
+        </form>
+
+
+        <a href="/">
+            <button>
+                Retour
+            </button>
+        </a>
+
+    </div>
+
+</body>
+
+</html>
