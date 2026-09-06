@@ -1,1 +1,0 @@
-            "Statut": request.form["statut"]
