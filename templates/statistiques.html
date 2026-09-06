@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Statistiques</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="form-container">
+
+        <img
+            src="{{ url_for('static', filename='yazaki.png') }}"
+            alt="Logo Yazaki"
+            class="logo-yazaki-small"
+        >
+
+        <h1>Statistiques des tickets</h1>
+
+        <img
+            src="{{ url_for('static', filename='statistiques.png') }}"
+            alt="Graphique des statistiques"
+            class="graphique"
+        >
+
+        <br>
+
+        <a href="/">
+            <button>Retour</button>
+        </a>
+
+    </div>
+
+</body>
+
+</html>
