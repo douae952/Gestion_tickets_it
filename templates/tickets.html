@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
 
     <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Liste des tickets</title>
 
@@ -12,107 +15,202 @@
 
 </head>
 
+
 <body>
 
-    <div class="container-wide">
 
-        <img
-            src="{{ url_for('static', filename='yazaki.png') }}"
-            alt="Logo Yazaki"
-            class="logo-yazaki-small"
-        >
+<div class="dashboard">
 
-        <h1>Liste des tickets IT</h1>
 
+    <!-- ================================================== -->
+    <!-- HEADER -->
+    <!-- ================================================== -->
+
+    <header>
+
+        <img src="{{ url_for('static', filename='yazaki.png') }}"
+             alt="Yazaki"
+             class="logo-yazaki">
+
+        <h1>
+            Liste des tickets
+        </h1>
+
+        <p>
+            Gestion et suivi des tickets IT
+        </p>
+
+    </header>
+
+
+    <!-- ================================================== -->
+    <!-- TABLEAU DES TICKETS -->
+    <!-- ================================================== -->
+
+    <div class="table-container">
+
+        {% if tickets %}
 
         <table>
 
-            <tr>
-                <th>ID</th>
-                <th>Date</th>
-                <th>Utilisateur</th>
-                <th>Département</th>
-                <th>Catégorie</th>
-                <th>Description</th>
-                <th>Technicien IT</th>
-                <th>Solution</th>
-                <th>Statut</th>
-            </tr>
+            <thead>
 
+                <tr>
 
-            {% for ticket in tickets %}
+                    <th>ID</th>
 
-            <tr>
+                    <th>Date</th>
 
-                <td>{{ ticket["ID"] }}</td>
+                    <th>Utilisateur</th>
 
-                <td>{{ ticket["Date"] }}</td>
+                    <th>Département</th>
 
-                <td>{{ ticket["Utilisateur"] }}</td>
+                    <th>Catégorie</th>
 
-                <td>{{ ticket["Département"] }}</td>
+                    <th>Description</th>
 
-                <td>{{ ticket["Catégorie"] }}</td>
+                    <th>Technicien IT</th>
 
-                <td>{{ ticket["Description"] }}</td>
+                    <th>Solution</th>
 
-                <td>{{ ticket["Technicien IT"] }}</td>
+                    <th>Statut</th>
 
-                <td>{{ ticket["Solution"] }}</td>
+                    {% if session.get("role") in ["admin", "technicien"] %}
 
-
-                <!-- STATUT -->
-
-                <td>
-
-                    {% if ticket["Statut"] == "En attente" %}
-
-                        <span class="statut attente">
-                            🟠 En attente
-                        </span>
-
-                    {% elif ticket["Statut"] == "En cours" %}
-
-                        <span class="statut cours">
-                            🔵 En cours
-                        </span>
-
-                    {% elif ticket["Statut"] == "Résolu" %}
-
-                        <span class="statut resolu">
-                            🟢 Résolu
-                        </span>
-
-                    {% elif ticket["Statut"] == "Fermé" %}
-
-                        <span class="statut ferme">
-                            🔴 Fermé
-                        </span>
-
-                    {% else %}
-
-                        <span class="statut autre">
-                            {{ ticket["Statut"] }}
-                        </span>
+                    <th>Action</th>
 
                     {% endif %}
 
-                </td>
+                </tr>
 
-            </tr>
+            </thead>
 
-            {% endfor %}
+
+            <tbody>
+
+                {% for ticket in tickets %}
+
+                <tr>
+
+                    <td>
+                        {{ ticket["ID"] }}
+                    </td>
+
+
+                    <td>
+                        {{ ticket["Date"] }}
+                    </td>
+
+
+                    <td>
+                        {{ ticket["Utilisateur"] }}
+                    </td>
+
+
+                    <td>
+                        {{ ticket["Département"] }}
+                    </td>
+
+
+                    <td>
+                        {{ ticket["Catégorie"] }}
+                    </td>
+
+
+                    <td>
+                        {{ ticket["Description"] }}
+                    </td>
+
+
+                    <td>
+
+                        {% if ticket["Technicien IT"] %}
+
+                            {{ ticket["Technicien IT"] }}
+
+                        {% else %}
+
+                            <span>
+                                Non attribué
+                            </span>
+
+                        {% endif %}
+
+                    </td>
+
+
+                    <td>
+
+                        {% if ticket["Solution"] %}
+
+                            {{ ticket["Solution"] }}
+
+                        {% else %}
+
+                            <span>
+                                Aucune solution
+                            </span>
+
+                        {% endif %}
+
+                    </td>
+
+
+                    <td>
+                        {{ ticket["Statut"] }}
+                    </td>
+
+
+                    {% if session.get("role") in ["admin", "technicien"] %}
+
+                    <td>
+
+                        <a href="{{ url_for('modifier', id=ticket['ID']) }}"
+                           class="btn-retour">
+
+                            🛠️ Traiter
+
+                        </a>
+
+                    </td>
+
+                    {% endif %}
+
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
 
         </table>
 
 
-        <br>
+        {% else %}
 
-        <a href="/">
-            <button>Retour</button>
-        </a>
+        <p>
+            Aucun ticket disponible.
+        </p>
+
+        {% endif %}
 
     </div>
+
+
+    <!-- ================================================== -->
+    <!-- RETOUR -->
+    <!-- ================================================== -->
+
+    <a href="{{ url_for('accueil') }}"
+       class="btn-retour">
+
+        ← Retour
+
+    </a>
+
+
+</div>
+
 
 </body>
 

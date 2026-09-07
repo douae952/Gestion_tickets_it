@@ -1,81 +1,229 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
 
     <meta charset="UTF-8">
 
-    <title>Modifier un ticket</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Traiter un ticket</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
 
 </head>
 
+
 <body>
 
-    <div class="form-container">
 
-        <img
-            src="{{ url_for('static', filename='yazaki.png') }}"
-            alt="Logo Yazaki"
-            class="logo-yazaki-small"
-        >
+<div class="form-container">
 
-        <h1>Modifier un ticket</h1>
 
-        <form method="POST">
+    <!-- ================================================== -->
+    <!-- LOGO -->
+    <!-- ================================================== -->
 
-            <label>ID du ticket</label>
+    <img src="{{ url_for('static', filename='yazaki.png') }}"
+         alt="Yazaki"
+         class="logo-yazaki-small">
 
-            <input
-                type="text"
-                name="id"
-                required
-            >
 
-            <label>Technicien IT</label>
+    <h1 class="page-title">
+        Traiter un ticket
+    </h1>
 
-            <input
-                type="text"
-                name="technicien"
-                required
-            >
 
-            <label>Solution</label>
+    <p>
+        Traitement du ticket sélectionné
+    </p>
 
-            <textarea
-                name="solution"
-                required
-            ></textarea>
 
-            <label>Statut</label>
+    {% if message %}
 
-            <input
-                type="text"
-                name="statut"
-                required
-            >
-
-            <button type="submit">
-                Modifier le ticket
-            </button>
-
-        </form>
-
-        {% if message %}
-
-        <p class="message">
+        <p style="color: red;">
             {{ message }}
         </p>
 
-        {% endif %}
+    {% endif %}
 
-        <a href="/">
-            <button>Retour</button>
-        </a>
 
-    </div>
+    <!-- ================================================== -->
+    <!-- FORMULAIRE -->
+    <!-- ================================================== -->
+
+    <form method="POST">
+
+
+        <!-- ============================================== -->
+        <!-- ID DU TICKET -->
+        <!-- ============================================== -->
+
+        <label for="id">
+            ID du ticket
+        </label>
+
+        <input type="text"
+               id="id"
+               name="id"
+               value="{{ ticket['ID'] }}"
+               readonly>
+
+
+        <!-- ============================================== -->
+        <!-- EMPLOYÉ -->
+        <!-- ============================================== -->
+
+        <label>
+            Employé
+        </label>
+
+        <input type="text"
+               value="{{ ticket['Utilisateur'] }}"
+               readonly>
+
+
+        <!-- ============================================== -->
+        <!-- DÉPARTEMENT -->
+        <!-- ============================================== -->
+
+        <label>
+            Département
+        </label>
+
+        <input type="text"
+               value="{{ ticket['Département'] }}"
+               readonly>
+
+
+        <!-- ============================================== -->
+        <!-- CATÉGORIE -->
+        <!-- ============================================== -->
+
+        <label>
+            Catégorie
+        </label>
+
+        <input type="text"
+               value="{{ ticket['Catégorie'] }}"
+               readonly>
+
+
+        <!-- ============================================== -->
+        <!-- DESCRIPTION -->
+        <!-- ============================================== -->
+
+        <label>
+            Description
+        </label>
+
+        <textarea readonly>{{ ticket['Description'] }}</textarea>
+
+
+        <!-- ============================================== -->
+        <!-- TECHNICIEN -->
+        <!-- ============================================== -->
+
+        <label for="technicien">
+            Technicien IT
+        </label>
+
+        <input type="text"
+               id="technicien"
+               name="technicien"
+               placeholder="Nom du technicien"
+               value="{{ ticket['Technicien IT'] }}"
+               required>
+
+
+        <!-- ============================================== -->
+        <!-- SOLUTION -->
+        <!-- ============================================== -->
+
+        <label for="solution">
+            Solution
+        </label>
+
+        <textarea id="solution"
+                  name="solution"
+                  placeholder="Décrivez la solution apportée..."
+                  required>{{ ticket['Solution'] }}</textarea>
+
+
+        <!-- ============================================== -->
+        <!-- STATUT -->
+        <!-- ============================================== -->
+
+        <label for="statut">
+            Statut
+        </label>
+
+        <select id="statut"
+                name="statut"
+                required>
+
+            <option value="En attente"
+                {% if ticket['Statut'] == 'En attente' %}
+                    selected
+                {% endif %}>
+                En attente
+            </option>
+
+
+            <option value="En cours"
+                {% if ticket['Statut'] == 'En cours' %}
+                    selected
+                {% endif %}>
+                En cours
+            </option>
+
+
+            <option value="Résolu"
+                {% if ticket['Statut'] == 'Résolu' %}
+                    selected
+                {% endif %}>
+                Résolu
+            </option>
+
+
+            <option value="Fermé"
+                {% if ticket['Statut'] == 'Fermé' %}
+                    selected
+                {% endif %}>
+                Fermé
+            </option>
+
+        </select>
+
+
+        <!-- ============================================== -->
+        <!-- BOUTON ENREGISTRER -->
+        <!-- ============================================== -->
+
+        <button type="submit">
+            💾 Enregistrer le traitement
+        </button>
+
+
+    </form>
+
+
+    <!-- ================================================== -->
+    <!-- RETOUR -->
+    <!-- ================================================== -->
+
+    <a href="{{ url_for('afficher_tickets') }}"
+       class="btn-retour">
+
+        ← Retour aux tickets
+
+    </a>
+
+
+</div>
+
 
 </body>
 

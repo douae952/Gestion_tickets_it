@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
 
     <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
     <title>Espace Technicien IT</title>
 
@@ -12,94 +15,159 @@
 
 </head>
 
+
 <body>
 
-    <div class="dashboard">
 
-        <header>
-
-            <img
-                src="{{ url_for('static', filename='yazaki.png') }}"
-                alt="Logo Yazaki"
-                class="logo-yazaki"
-            >
-
-            <h1>Espace Technicien IT</h1>
-
-            <p>Gestion et traitement des tickets</p>
-
-        </header>
+<div class="dashboard">
 
 
-        <div class="cards">
+    <!-- ================================================== -->
+    <!-- HEADER -->
+    <!-- ================================================== -->
 
-            <a href="/tickets" class="card">
+    <header>
 
-                <div class="icon">📋</div>
+        <img src="{{ url_for('static', filename='yazaki.png') }}"
+             alt="Yazaki"
+             class="logo-yazaki">
 
-                <h2>Tickets</h2>
+        <h1>
+            Espace Technicien IT
+        </h1>
 
-                <p>
-                    Consulter les tickets des employés
-                </p>
+        <p>
+            Bienvenue {{ session.get("username") }}
+        </p>
 
-            </a>
-
-
-            <a href="/rechercher" class="card">
-
-                <div class="icon">🔎</div>
-
-                <h2>Rechercher</h2>
-
-                <p>
-                    Rechercher un ticket par ID
-                </p>
-
-            </a>
+    </header>
 
 
-            <a href="/modifier" class="card">
+    <!-- ================================================== -->
+    <!-- MENU -->
+    <!-- ================================================== -->
 
-                <div class="icon">✏️</div>
-
-                <h2>Traiter un ticket</h2>
-
-                <p>
-                    Ajouter une solution et modifier le statut
-                </p>
-
-            </a>
+    <div class="cards">
 
 
-            <a href="/statistiques" class="card">
+        <!-- ============================================== -->
+        <!-- LISTE DES TICKETS -->
+        <!-- ============================================== -->
 
-                <div class="icon">📊</div>
+        <a href="{{ url_for('afficher_tickets') }}"
+           class="card">
 
-                <h2>Statistiques</h2>
+            <div class="icon">
+                📋
+            </div>
 
-                <p>
-                    Analyser les tickets IT
-                </p>
+            <h2>
+                Liste des tickets
+            </h2>
 
-            </a>
+            <p>
+                Consulter tous les tickets envoyés
+                par les employés.
+            </p>
 
-        </div>
+        </a>
 
 
-        <div style="text-align: center; margin-top: 30px;">
+        <!-- ============================================== -->
+        <!-- TRAITER UN TICKET -->
+        <!-- ============================================== -->
 
-            <a href="/logout">
+        <a href="{{ url_for('afficher_tickets') }}"
+           class="card">
 
-                <button>
-                    🚪 Déconnexion
-                </button>
+            <div class="icon">
+                🛠️
+            </div>
 
-            </a>
+            <h2>
+                Traiter un ticket
+            </h2>
 
-        </div>
+            <p>
+                Sélectionner un ticket et ajouter
+                une solution ou modifier son statut.
+            </p>
+
+        </a>
+
+
+        <!-- ============================================== -->
+        <!-- RECHERCHER -->
+        <!-- ============================================== -->
+
+        <a href="{{ url_for('rechercher') }}"
+           class="card">
+
+            <div class="icon">
+                🔎
+            </div>
+
+            <h2>
+                Rechercher un ticket
+            </h2>
+
+            <p>
+                Rechercher un ticket par son ID.
+            </p>
+
+        </a>
+
+
+        <!-- ============================================== -->
+        <!-- STATISTIQUES -->
+        <!-- ============================================== -->
+
+        <a href="{{ url_for('statistiques') }}"
+           class="card">
+
+            <div class="icon">
+                📊
+            </div>
+
+            <h2>
+                Statistiques
+            </h2>
+
+            <p>
+                Consulter les statistiques
+                des tickets IT.
+            </p>
+
+        </a>
+
+
+        <!-- ============================================== -->
+        <!-- DÉCONNEXION -->
+        <!-- ============================================== -->
+
+        <a href="{{ url_for('logout') }}"
+           class="card">
+
+            <div class="icon">
+                🚪
+            </div>
+
+            <h2>
+                Déconnexion
+            </h2>
+
+            <p>
+                Quitter l'espace technicien.
+            </p>
+
+        </a>
+
 
     </div>
+
+
+</div>
+
 
 </body>
 
