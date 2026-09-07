@@ -1,149 +1,73 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="fr">
 <head>
-
     <meta charset="UTF-8">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajouter un ticket</title>
-
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 
 <body>
 
-    <div class="form-container">
+<div class="form-container">
 
-        <!-- LOGO -->
+    <img src="{{ url_for('static', filename='yazaki.png') }}"
+         alt="Yazaki"
+         class="logo-yazaki-small">
 
-        <img
-            src="{{ url_for('static', filename='yazaki.png') }}"
-            alt="Logo Yazaki"
-            class="logo-yazaki-small"
-        >
+    <h1 class="page-title">Ajouter un ticket</h1>
 
+    <form method="POST">
 
-        <h1>Ajouter un ticket IT</h1>
+        <label for="departement">Département</label>
+        <input type="text"
+               id="departement"
+               name="departement"
+               required>
 
+        <label for="categorie">Catégorie</label>
+        <input type="text"
+               id="categorie"
+               name="categorie"
+               required>
 
-        <form method="POST">
+        <label for="description">Description du problème</label>
+        <textarea id="description"
+                  name="description"
+                  required></textarea>
 
-            <label>Utilisateur</label>
+        {% if session.get("role") != "employe" %}
 
-            <input
-                type="text"
-                name="utilisateur"
-                required
-            >
+            <label for="technicien">Technicien IT</label>
+            <input type="text"
+                   id="technicien"
+                   name="technicien">
 
+            <label for="solution">Solution</label>
+            <textarea id="solution"
+                      name="solution"></textarea>
 
-            <label>Département</label>
+            <label for="statut">Statut</label>
+            <select id="statut" name="statut">
+                <option value="En attente">En attente</option>
+                <option value="En cours">En cours</option>
+                <option value="Résolu">Résolu</option>
+                <option value="Fermé">Fermé</option>
+            </select>
 
-            <input
-                type="text"
-                name="departement"
-                required
-            >
+        {% endif %}
 
+        <button type="submit">Ajouter le ticket</button>
 
-            <form method="POST">
+    </form>
 
-    <label>Département</label>
+    <br>
 
-    <input type="text"
-           name="departement"
-           required>
+    <a href="{{ url_for('accueil') }}" class="card">
+        Retour
+    </a>
 
-
-    <label>Catégorie</label>
-
-    <input type="text"
-           name="categorie"
-           required>
-
-
-    <label>Description</label>
-
-    <textarea
-        name="description"
-        required></textarea>
-
-
-    <label>Technicien IT</label>
-
-    <input type="text"
-           name="technicien">
-
-
-    <label>Solution</label>
-
-    <textarea
-        name="solution"></textarea>
-
-
-    <label>Statut</label>
-
-    <input type="text"
-           name="statut"
-           value="En attente">
-
-
-    <button type="submit">
-        Ajouter le ticket
-    </button>
-
-</form>
-
-
-            <label>Description</label>
-
-            <textarea
-                name="description"
-                required
-            ></textarea>
-
-
-            <label>Technicien IT</label>
-
-            <input
-                type="text"
-                name="technicien"
-            >
-
-
-            <label>Solution</label>
-
-            <textarea
-                name="solution"
-            ></textarea>
-
-
-            <label>Statut</label>
-
-            <input
-                type="text"
-                name="statut"
-            >
-
-
-            <button type="submit">
-                Ajouter le ticket
-            </button>
-
-        </form>
-
-
-        <a href="/">
-            <button>
-                Retour
-            </button>
-        </a>
-
-    </div>
+</div>
 
 </body>
-
 </html>

@@ -1,99 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Espace Employé - Gestion des Tickets IT</title>
+    <title>Espace Employé</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
-
 </head>
 
 <body>
 
-    <div class="dashboard">
+<div class="dashboard">
 
-        <header>
+    <header>
 
-            <img
-                src="{{ url_for('static', filename='yazaki.png') }}"
-                alt="Logo Yazaki"
-                class="logo-yazaki"
-            >
+        <img src="{{ url_for('static', filename='yazaki.png') }}"
+             alt="Yazaki"
+             class="logo-yazaki">
 
-            <h1>Espace Employé</h1>
+        <h1>Espace Employé</h1>
 
-            <p>Gestion des Tickets IT - Yazaki Kenitra</p>
+        <p>Bienvenue {{ session.get("username") }}</p>
 
-        </header>
+    </header>
 
 
-        <div class="cards">
+    <div class="cards">
 
-            <!-- Nouveau ticket -->
+        <!-- Nouveau ticket -->
+        <a href="{{ url_for('ajouter') }}" class="card">
 
-            <a href="/ajouter" class="card">
+            <div class="icon">📝</div>
 
-                <div class="icon">➕</div>
+            <h2>Nouveau ticket</h2>
 
-                <h2>Nouveau ticket</h2>
+            <p>
+                Signaler un nouveau problème informatique
+            </p>
 
-                <p>
-                    Signaler un problème informatique
-                </p>
-
-            </a>
-
-
-            <!-- Mes tickets -->
-
-            <a href="/mes-tickets" class="card">
-
-                <div class="icon">📋</div>
-
-                <h2>Mes tickets</h2>
-
-                <p>
-                    Consulter mes demandes IT
-                </p>
-
-            </a>
+        </a>
 
 
-            <!-- Rechercher -->
+        <!-- Mes tickets -->
+        <a href="{{ url_for('mes_tickets') }}" class="card">
 
-            <a href="/rechercher" class="card">
+            <div class="icon">📋</div>
 
-                <div class="icon">🔎</div>
+            <h2>Mes tickets</h2>
 
-                <h2>Suivre un ticket</h2>
+            <p>
+                Consulter mes tickets et leur statut
+            </p>
 
-                <p>
-                    Consulter l'état d'un ticket
-                </p>
-
-            </a>
-
-        </div>
+        </a>
 
 
-        <div style="text-align: center; margin-top: 30px;">
+        <!-- Suivre un ticket -->
+        <a href="{{ url_for('rechercher') }}" class="card">
 
-            <a href="/logout">
+            <div class="icon">🔎</div>
 
-                <button>
-                    🚪 Déconnexion
-                </button>
+            <h2>Suivre un ticket</h2>
 
-            </a>
+            <p>
+                Rechercher un ticket par son ID
+            </p>
 
-        </div>
+        </a>
+
+
+        <!-- Déconnexion -->
+        <a href="{{ url_for('logout') }}" class="card">
+
+            <div class="icon">🚪</div>
+
+            <h2>Déconnexion</h2>
+
+            <p>
+                Quitter l'espace employé
+            </p>
+
+        </a>
 
     </div>
 
-</body>
+</div>
 
+</body>
 </html>
