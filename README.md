@@ -36,14 +36,15 @@ L'application possède trois rôles :
 
 ## Structure du projet
 
-```text
+``text
 Gestion_tickets_it/
 ├── app.py
 ├── Gestion_Tickets_IT.xlsx
 ├── templates/
 └── static/
 
-## Realisé par :
-**Douae Chgadna**
-**Imane Ait mobarak**
+## realisee par:
+DOUAE CHGADNA 
+IAMNE AIT MOUBARAK
+
 
