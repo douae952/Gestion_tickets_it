@@ -1,6 +1,6 @@
 ## realisee par:
-DOUAE CHGADNA 
-IAMNE AIT MOUBARAK
+-DOUAE CHGADNA 
+-IAMNE AIT MOUBARAK
 # Gestion Tickets IT
 
 Application web de gestion des tickets informatiques.
