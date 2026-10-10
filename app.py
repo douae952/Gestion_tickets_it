@@ -7,9 +7,8 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 
-# ============================================================
 # APPLICATION FLASK
-# ============================================================
+
 
 app = Flask(__name__)
 
