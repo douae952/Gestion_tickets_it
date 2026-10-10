@@ -807,7 +807,7 @@ def supprimer():
             ]
 
 
-            # RÉINITIALISER LES INDEX
+            # RÉINITIALISER l LES INDEX
 
             df.reset_index(
                 drop=True,
