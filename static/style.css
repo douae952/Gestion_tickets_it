@@ -6,9 +6,7 @@ body {
 }
 
 
-/* =========================
-   DASHBOARD
-   ========================= */
+  #DASHBOARD
 
 .dashboard {
     max-width: 1100px;
@@ -16,9 +14,7 @@ body {
 }
 
 
-/* =========================
    HEADER
-   ========================= */
 
 header {
     text-align: center;
@@ -47,9 +43,7 @@ header p {
 }
 
 
-/* =========================
-   CARDS
-   ========================= */
+  #CARDS
 
 .cards {
     display: grid;
@@ -88,9 +82,7 @@ header p {
 }
 
 
-/* =========================
-   PAGES INTERNES
-   ========================= */
+   #PAGES INTERNES
 
 .page-container {
     max-width: 1000px;
@@ -113,9 +105,7 @@ header p {
 }
 
 
-/* =========================
-   FORMULAIRES
-   ========================= */
+   #FORMULAIRES
 
 .form-container {
     max-width: 600px;
@@ -164,9 +154,7 @@ textarea {
 }
 
 
-/* =========================
    BOUTONS
-   ========================= */
 
 button {
     padding: 12px 22px;
@@ -188,9 +176,7 @@ form button {
 }
 
 
-/* =========================
    TABLEAU
-   ========================= */
 
 .container-wide {
     max-width: 1400px;
@@ -224,9 +210,7 @@ tr:hover {
 }
 
 
-/* =========================
-   STATUT
-   ========================= */
+   #STATUT
 
 .statut {
     display: inline-block;
@@ -263,9 +247,7 @@ tr:hover {
 }
 
 
-/* =========================
-   RESULTAT RECHERCHE
-   ========================= */
+   #RESULTAT RECHERCHE
 
 .result {
     text-align: left;
@@ -281,9 +263,7 @@ tr:hover {
 }
 
 
-/* =========================
-   GRAPHIQUE
-   ========================= */
+   #GRAPHIQUE
 
 .graphique {
     width: 100%;
@@ -293,9 +273,7 @@ tr:hover {
 }
 
 
-/* =========================
-   RESPONSIVE
-   ========================= */
+   #RESPONSIVE
 
 @media (max-width: 800px) {
 
