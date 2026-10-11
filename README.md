@@ -1,3 +1,6 @@
+## realisee par:
+DOUAE CHGADNA et
+IAMNE AIT MOUBARAK
 # Gestion Tickets IT
 
 Application web de gestion des tickets informatiques.
@@ -43,7 +46,4 @@ Gestion_tickets_it/
 ├── templates/
 └── static/
 
-## Realisé par :
-**Douae Chgadna**
-**Imane Ait mobarak**
 
